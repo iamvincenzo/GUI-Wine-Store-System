@@ -1,5 +1,24 @@
-# GUI-Wine-Store-System
-Java-Project
+# GUI-Wine-Store-System (ENG)
+
+Assignment 3 - Software Engineering UniPR
+
+The goal is to define UML diagrams for use cases and classes that document a software system for online wine sales and to implement the system in Java, using appropriate object-oriented programming techniques.
+
+Wines are identified by name, producer, year, technical notes, and the grape varieties they are derived from. It should be noted that the system must also track the number of bottles for each wine and vintage produced.
+
+The system interacts with users (people who want to purchase wine) and employees (people who manage the sales). Each person is identified by their first name, last name, and email address.
+
+A user can register, search for wines by name and production year, and purchase wine bottles after authenticated login. An employee can ship wine bottles to customers and replace sold bottles.
+
+Every time a user places an order for a certain number of bottles of a given wine, the operation must be recorded by the system, which also decrements the number of bottles available for sale. If the stock reaches zero, the system must indicate stock depletion, and the employee must acquire an appropriate number of bottles of that wine type. Upon arrival of the bottles, the system should update the data accordingly.
+
+If the bottles of a particular wine are not available, a user can subscribe to a notification request for the availability of the desired number of bottles to be purchased. When the requested bottles become available, the system notifies the user of their availability.
+
+The system will be managed by an administrator who will be responsible for assigning credentials to employees and viewing information about customers, employees, wines, and orders.
+
+The system has a client-server structure. A central server maintains data on customers, employees, wines, and orders in a relational database. Clients allow users and employees to interact with the server through a graphical interface. Multiple users, customers, and administrators can concurrently access the server.
+
+# GUI-Wine-Store-System (ITA)
 
 Assignement 3 - Software Engineering UniPR
 
