@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="393.0" prefWidth="694.0"
+	style="-fx-background-color: #082656;"
+	xmlns="http://javafx.com/javafx/11.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="assignement3.controller.EmployeeDashboardController">
+	<children>
+
+		<Label layoutX="14.0" layoutY="9.0" prefHeight="62.0"
+			prefWidth="138.0" text="Welcome" textFill="WHITE">
+			<font>
+				<Font name="Couture-Bold" size="32.0" />
+			</font>
+		</Label>
+
+		<Label fx:id="usernameLabel" layoutX="152.0" layoutY="16.0"
+			prefHeight="47.0" prefWidth="436.0" text="Employee"
+			textFill="#4c6fa2">
+			<font>
+				<Font size="32.0" />
+			</font>
+		</Label>
+
+		<TabPane fx:id="employeeTabPane" layoutY="81.0"
+			prefHeight="350.0" prefWidth="693.0"
+			style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+			<tabs>
+
+				<Tab fx:id="deliveryTab" text="Delivery">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="180.0" prefWidth="200.0">
+							<children>
+
+								<TableView fx:id="deliveryTableView" layoutX="14.0"
+									layoutY="10.0" prefHeight="247.0" prefWidth="665.0">
+									<placeholder>
+										<Label text="Orders to delivery" />
+									</placeholder>
+									<columns>
+										<TableColumn fx:id="ordID" prefWidth="20.0"
+											text="ID" />
+										<TableColumn fx:id="ordCustomer" prefWidth="100.0"
+											text="Customer" />
+										<TableColumn fx:id="ordCAddress" prefWidth="150.0"
+											text="Customer Address" />
+										<TableColumn fx:id="ordWine" prefWidth="100.0"
+											text="Wine" />
+										<TableColumn fx:id="ordWProducer"
+											prefWidth="100.0" text="Producer" />
+										<TableColumn fx:id="ordWYear" prefWidth="100.0"
+											text="Year" />
+										<TableColumn fx:id="ordBottles" prefWidth="100.0"
+											text="Bottles" />
+									</columns>
+								</TableView>
+
+								<Button layoutX="245.0" layoutY="269.0"
+									mnemonicParsing="false" onAction="#handleViewBySearchButton"
+									prefHeight="25.0" prefWidth="122.0"
+									style="-fx-background-color: #2777f7;" text="View"
+									textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<TextField fx:id="customerID" alignment="TOP_CENTER"
+									layoutX="138.0" layoutY="270.0" prefHeight="25.0"
+									prefWidth="90.0" promptText="Customer ID" />
+
+								<Button fx:id="sendAll" layoutX="389.0" layoutY="269.0"
+									mnemonicParsing="false" onAction="#handleShipAllButton"
+									prefHeight="25.0" prefWidth="138.0"
+									style="-fx-background-color: #2777f7;" text="Send All"
+									textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button fx:id="deliveryViewAll" layoutX="540.0"
+									layoutY="269.0" mnemonicParsing="false"
+									onAction="#handleShipSelect" prefHeight="25.0"
+									prefWidth="138.0" style="-fx-background-color: #2777f7;"
+									text="Send select" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<DatePicker fx:id="dateOrder" editable="false"
+									layoutX="14.0" layoutY="270.0" onAction="#handleDatePicker"
+									prefHeight="26.0" prefWidth="108.0" promptText="2017/08/31" />
+
+							</children>
+
+						</AnchorPane>
+					</content>
+				</Tab>
+
+				<Tab fx:id="buyFinishedWineTab" closable="false"
+					text="Buy finished wine">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="320.0" prefWidth="680.0">
+							<children>
+
+								<TableView fx:id="buyFinishedWineTableView"
+									layoutX="14.0" layoutY="10.0" prefHeight="263.0"
+									prefWidth="670.0">
+									<columns>
+										<TableColumn fx:id="wineFID" prefWidth="20.0"
+											text="ID" />
+										<TableColumn fx:id="wineFName" prefWidth="100.0"
+											text="Name" />
+										<TableColumn fx:id="wineFProducer"
+											prefWidth="100.0" text="Producer" />
+										<TableColumn fx:id="wineFYear" text="Year" />
+										<TableColumn fx:id="wineFTn" prefWidth="100.0"
+											text="Technical Notes" />
+										<TableColumn fx:id="wineFVines" prefWidth="100.0"
+											text="Vines" />
+										<TableColumn fx:id="wineFBottle" prefWidth="70.0"
+											text="Bottles" />
+										<TableColumn fx:id="wineFPrice" prefWidth="100.0"
+											text="Price" />
+									</columns>
+								</TableView>
+
+								<Button fx:id="buyFinishedWineButton" layoutX="278.0"
+									layoutY="279.0" mnemonicParsing="false"
+									onAction="#handleBuyFinishedWineButton" prefHeight="28.0"
+									prefWidth="138.0" style="-fx-background-color: #2777f7;"
+									text="Buy finished wine" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button fx:id="finishedViewAll" layoutX="534.0"
+									layoutY="279.0" mnemonicParsing="false"
+									onAction="#handleViewAllFinished" prefHeight="28.0"
+									prefWidth="150.0" style="-fx-background-color: #2777f7;"
+									text="View All" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<TextField fx:id="wineNB" layoutX="14.0"
+									layoutY="279.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Number of bottles" />
+
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+
+				<Tab fx:id="buyNewWineTab" closable="false"
+					onSelectionChanged="#handleBuyNewWineTab" text="Buy new wine">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="320.0" prefWidth="680.0">
+							<children>
+
+								<TableView fx:id="buyNewWineTableView" layoutX="14.0"
+									layoutY="10.0"
+									onKeyPressed="#handleBuyNewWineTabPaneDeselectRow"
+									onMouseClicked="#handleBuyNewWineTableView" prefHeight="267.0"
+									prefWidth="526.0">
+									<placeholder>
+										<Label text="View Wine" />
+									</placeholder>
+									<columns>
+										<TableColumn fx:id="wineID" prefWidth="20.0"
+											text="ID" />
+										<TableColumn fx:id="wineName" text="Name" />
+										<TableColumn fx:id="wineProducer" text="Producer" />
+										<TableColumn fx:id="wineYear" prefWidth="60.0"
+											text="Year" />
+										<TableColumn fx:id="wineTn" prefWidth="85.0"
+											text="Technical Notes" />
+										<TableColumn fx:id="wineVines" text="Vines" />
+										<TableColumn fx:id="wineBottle" prefWidth="60.0"
+											text="Bottles" />
+										<TableColumn fx:id="winePrice" prefWidth="60.0"
+											text="Price" />
+									</columns>
+								</TableView>
+
+								<Button fx:id="buyNewWine" layoutX="227.0"
+									layoutY="285.0" mnemonicParsing="false"
+									onAction="#handleBuyNewWineButton" prefHeight="28.0"
+									prefWidth="112.0" style="-fx-background-color: #2777f7;"
+									text="Buy new wine" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<TextField fx:id="newWineName" layoutX="544.0"
+									layoutY="8.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Name" />
+								<TextField fx:id="newWineProducer" layoutX="544.0"
+									layoutY="39.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Producer" />
+								<TextField fx:id="newWineYear" layoutX="544.0"
+									layoutY="69.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Year" />
+								<TextArea fx:id="newWineTN" layoutX="544.0"
+									layoutY="102.0" prefHeight="83.0" prefWidth="138.0"
+									promptText="Technical Notes" />
+								<TextField fx:id="newWineVines" layoutX="544.0"
+									layoutY="191.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Vines" />
+								<TextField fx:id="newWineNB" layoutX="544.0"
+									layoutY="221.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Number of bottles" />
+								<TextField fx:id="newWinePrice" layoutX="544.0"
+									layoutY="252.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Price" />
+
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+
+				<Tab fx:id="updateWineTab" closable="false"
+					onSelectionChanged="#handleUpdateWineTab" text="Update">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="320.0" prefWidth="680.0">
+							<children>
+
+								<TableView fx:id="updateWineTableView" layoutX="14.0"
+									layoutY="10.0" prefHeight="266.0" prefWidth="670.0">
+									<columns>
+										<TableColumn fx:id="wineUID" prefWidth="20.0"
+											text="ID" />
+										<TableColumn fx:id="wineUName" prefWidth="100.0"
+											text="Name" />
+										<TableColumn fx:id="wineUProducer"
+											prefWidth="100.0" text="Producer" />
+										<TableColumn fx:id="wineUYear" text="Year" />
+										<TableColumn fx:id="wineUTn" prefWidth="100.0"
+											text="Technical Notes" />
+										<TableColumn fx:id="wineUVines" prefWidth="100.0"
+											text="Vines" />
+										<TableColumn fx:id="wineUBottle" prefWidth="70.0"
+											text="Bottles" />
+										<TableColumn fx:id="wineUPrice" prefWidth="100.0"
+											text="Price" />
+									</columns>
+								</TableView>
+
+								<Button fx:id="uploadButton" disable="true"
+									layoutX="297.0" layoutY="286.0" mnemonicParsing="false"
+									onAction="#handleUpdateWineButton" prefHeight="28.0"
+									prefWidth="99.0" style="-fx-background-color: #2777f7;"
+									text="Update" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+
+			</tabs>
+		</TabPane>
+
+		<Hyperlink layoutX="619.0" layoutY="14.0"
+			onAction="#handleHomeButton" text="Logout" textFill="#2777f7">
+			<font>
+				<Font name="System Bold" size="15.0" />
+			</font>
+		</Hyperlink>
+
+	</children>
+</AnchorPane>

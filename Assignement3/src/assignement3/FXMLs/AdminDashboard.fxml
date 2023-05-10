@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="393.0" prefWidth="694.0"
+	style="-fx-background-color: #082656;"
+	xmlns="http://javafx.com/javafx/11.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="assignement3.controller.AdminDashboardController">
+	<children>
+		<Label layoutX="14.0" layoutY="9.0" prefHeight="62.0"
+			prefWidth="138.0" text="Welcome" textFill="WHITE">
+			<font>
+				<Font name="Couture-Bold" size="32.0" />
+			</font>
+		</Label>
+		<Label fx:id="usernameLabel" layoutX="152.0" layoutY="16.0"
+			prefHeight="47.0" prefWidth="425.0" text="Admin" textFill="#4c6fa2">
+			<font>
+				<Font size="32.0" />
+			</font>
+		</Label>
+		<TabPane fx:id="adminTabPane" layoutY="81.0"
+			prefHeight="350.0" prefWidth="693.0"
+			style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+			<tabs>
+				<Tab fx:id="orderTab" closable="false" text="Orders">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="180.0" prefWidth="200.0">
+							<children>
+
+								<TableView fx:id="orderTableView" layoutX="14.0"
+									layoutY="10.0" prefHeight="255.0" prefWidth="675.0">
+									<placeholder>
+										<Label text="View Order" />
+									</placeholder>
+									<columns>
+										<TableColumn fx:id="ordID" prefWidth="30.0"
+											text="ID" />
+										<TableColumn fx:id="emailC" prefWidth="60.0"
+											text="Email" />
+										<TableColumn fx:id="ordWine" prefWidth="90.0"
+											text="Wine" />
+										<TableColumn fx:id="ordWProducer"
+											prefWidth="100.0" text="Producer" />
+										<TableColumn fx:id="ordWYear" text="Year" />
+										<TableColumn fx:id="ordBottles" prefWidth="90.0"
+											text="Bottles" />
+										<TableColumn fx:id="ordCompleted" prefWidth="70.0"
+											text="Completed" />
+										<TableColumn fx:id="ordDate" text="Date" />
+										<TableColumn fx:id="ordTot" text="Price" />
+									</columns>
+
+								</TableView>
+
+								<TextField fx:id="customerID" alignment="TOP_CENTER"
+									layoutX="263.0" layoutY="275.0" prefHeight="25.0"
+									prefWidth="150.0" promptText="Customer ID" />
+
+								<DatePicker fx:id="dateOrder" editable="false"
+									layoutX="84.0" layoutY="275.0" onAction="#handleDatePicker"
+									prefHeight="26.0" prefWidth="155.0" promptText="dd/mm/yyyy" />
+
+								<Button layoutX="435.0" layoutY="275.0"
+									mnemonicParsing="false" onAction="#handleViewBySearchButton"
+									prefHeight="28.0" prefWidth="150.0"
+									style="-fx-background-color: #2777f7;" text="View"
+									textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab fx:id="customerTab" closable="false"
+					onSelectionChanged="#handleCustomerTab" text="Customers">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="270.0" prefWidth="438.0"
+							style="-fx-background-color: white;">
+							<children>
+
+								<TableView fx:id="customerTableView" cache="true"
+									layoutX="14.0" layoutY="10.0" prefHeight="304.0"
+									prefWidth="481.0">
+									<placeholder>
+										<Label text="View Customer" />
+									</placeholder>
+									<columns>
+										<TableColumn fx:id="custId" prefWidth="20.0"
+											text="ID" />
+										<TableColumn fx:id="custName" maxWidth="500.0"
+											text="Name" />
+										<TableColumn fx:id="custSurname" text="Surname" />
+										<TableColumn fx:id="custEmail" prefWidth="100.0"
+											text="Email" />
+										<TableColumn fx:id="custPass" prefWidth="100.0"
+											text="Password" />
+										<TableColumn fx:id="custAddr" prefWidth="100.0"
+											text="Address" />
+									</columns>
+								</TableView>
+
+								<Button layoutX="502.0" layoutY="269.0"
+									mnemonicParsing="false" onAction="#handleAddPeopleButton"
+									prefHeight="28.0" prefWidth="80.0"
+									style="-fx-background-color: #2777f7;" text="Add "
+									textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button fx:id="deleteCustomerButton" layoutX="552.0"
+									layoutY="232.0" mnemonicParsing="false"
+									onAction="#handleDeletePeopleButton" prefHeight="28.0"
+									prefWidth="80.0" style="-fx-background-color: #2e0394;"
+									text="Remove" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button fx:id="updateCustomerButton" layoutX="598.0"
+									layoutY="269.0" mnemonicParsing="false"
+									onAction="#handleUpdatePeopleButton" prefHeight="28.0"
+									prefWidth="80.0" style="-fx-background-color: #2777f7;"
+									text="Update" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<TextField fx:id="newCustName" layoutX="501.0"
+									layoutY="27.0" prefHeight="25.0" prefWidth="180.0"
+									promptText="Name" />
+								<TextField fx:id="newCustSurname" layoutX="501.0"
+									layoutY="69.0" prefHeight="25.0" prefWidth="180.0"
+									promptText="Surname" />
+								<TextField fx:id="newCustEmail" layoutX="501.0"
+									layoutY="111.0" prefHeight="25.0" prefWidth="180.0"
+									promptText="Email" />
+								<TextField fx:id="newCustPass" layoutX="499.0"
+									layoutY="153.0" prefHeight="25.0" prefWidth="180.0"
+									promptText="Password" />
+								<TextField fx:id="newCustAddr" layoutX="499.0"
+									layoutY="195.0" prefHeight="25.0" prefWidth="180.0"
+									promptText="Address" />
+
+								<Label fx:id="invalidNameC" layoutX="503.0" layoutY="11.0"
+									text="This field is required*" textFill="#ee0000"
+									visible="false" />
+								<Label fx:id="invalidSurnameC" layoutX="502.0"
+									layoutY="51.0" text="This field is required*"
+									textFill="#ee0000" visible="false" />
+								<Label fx:id="invalidEmailC" layoutX="503.0"
+									layoutY="94.0" text="This field is required*"
+									textFill="#ee0000" visible="false" />
+								<Label fx:id="invalidPasswordC" layoutX="503.0"
+									layoutY="136.0" text="This field is required*"
+									textFill="#ee0000" visible="false" />
+								<Label fx:id="invalidAddressC" layoutX="503.0"
+									layoutY="178.0" text="This field is required*"
+									textFill="#ee0000" visible="false" />
+
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab fx:id="employeeTab" closable="false"
+					onSelectionChanged="#handleEmployeeTab" text="Employees">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="270.0" prefWidth="438.0"
+							style="-fx-background-color: white;">
+							<children>
+
+								<TableView fx:id="employeeTableView" cache="true"
+									layoutX="14.0" layoutY="10.0" prefHeight="304.0"
+									prefWidth="442.0">
+									<placeholder>
+										<Label text="View Employee" />
+									</placeholder>
+									<columns>
+										<TableColumn fx:id="empId" prefWidth="20.0"
+											text="ID" />
+										<TableColumn fx:id="empName" maxWidth="500.0"
+											prefWidth="100.0" text="Name" />
+										<TableColumn fx:id="empSurname" prefWidth="100.0"
+											text="Surname" />
+										<TableColumn fx:id="empEmail" prefWidth="120.0"
+											text="Email" />
+										<TableColumn fx:id="empPass" prefWidth="100.0"
+											text="Password" />
+									</columns>
+								</TableView>
+
+								<Button layoutX="462.0" layoutY="193.0"
+									mnemonicParsing="false" onAction="#handleAddPeopleButton"
+									prefHeight="28.0" prefWidth="99.0"
+									style="-fx-background-color: #2777f7;" text="Add "
+									textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button fx:id="deleteEmployeeButton" layoutX="519.0"
+									layoutY="231.0" mnemonicParsing="false"
+									onAction="#handleDeletePeopleButton" prefHeight="28.0"
+									prefWidth="99.0" style="-fx-background-color: #2e0394;"
+									text="Remove" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button fx:id="updateEmployeeButton" layoutX="575.0"
+									layoutY="193.0" mnemonicParsing="false"
+									onAction="#handleUpdatePeopleButton" prefHeight="28.0"
+									prefWidth="99.0" style="-fx-background-color: #2777f7;"
+									text="Update" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<TextField fx:id="newEmpName" layoutX="461.0"
+									layoutY="27.0" prefHeight="25.0" prefWidth="215.0"
+									promptText="Name" />
+								<TextField fx:id="newEmpSurname" layoutX="461.0"
+									layoutY="69.0" prefHeight="25.0" prefWidth="215.0"
+									promptText="Surname" />
+								<TextField fx:id="newEmpEmail" layoutX="461.0"
+									layoutY="111.0" prefHeight="25.0" prefWidth="215.0"
+									promptText="Email" />
+								<TextField fx:id="newEmpPass" layoutX="461.0"
+									layoutY="152.0" prefHeight="25.0" prefWidth="214.0"
+									promptText="Password" />
+
+								<Label fx:id="invalidNameE" layoutX="463.0" layoutY="11.0"
+									text="This field is required*" textFill="#ee0000"
+									visible="false" />
+								<Label fx:id="invalidSurnameE" layoutX="462.0"
+									layoutY="51.0" text="This field is required*"
+									textFill="#ee0000" visible="false" />
+								<Label fx:id="invalidEmailE" layoutX="463.0"
+									layoutY="94.0" text="This field is required*"
+									textFill="#ee0000" visible="false" />
+								<Label fx:id="invalidPasswordE" layoutX="463.0"
+									layoutY="136.0" text="This field is required*"
+									textFill="#ee0000" visible="false" />
+
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+				<Tab fx:id="wineTab" closable="false"
+					onSelectionChanged="#handleWineTab" text="Wines">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="320.0" prefWidth="680.0">
+							<children>
+
+								<TableView fx:id="wineTableView" layoutX="14.0"
+									layoutY="10.0" prefHeight="267.0" prefWidth="526.0">
+									<placeholder>
+										<Label text="View Wine" />
+									</placeholder>
+									<columns>
+										<TableColumn fx:id="wineID" prefWidth="20.0"
+											text="ID" />
+										<TableColumn fx:id="wineName" text="Name" />
+										<TableColumn fx:id="wineProducer" text="Producer" />
+										<TableColumn fx:id="wineYear" prefWidth="60.0"
+											text="Year" />
+										<TableColumn fx:id="wineTn" prefWidth="85.0"
+											text="Technical Notes" />
+										<TableColumn fx:id="wineVines" text="Vines" />
+										<TableColumn fx:id="wineBottle" prefWidth="60.0"
+											text="Bottles" />
+										<TableColumn fx:id="winePrice" prefWidth="60.0"
+											text="Price" />
+									</columns>
+								</TableView>
+
+								<Button layoutX="14.0" layoutY="286.0"
+									mnemonicParsing="false" onAction="#handleAddWineButton"
+									prefHeight="28.0" prefWidth="99.0"
+									style="-fx-background-color: #2777f7;" text="Add "
+									textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button fx:id="deleteWineButton" layoutX="438.0"
+									layoutY="286.0" mnemonicParsing="false"
+									onAction="#handleDeleteWineButton" prefHeight="28.0"
+									prefWidth="99.0" style="-fx-background-color: #2e0394;"
+									text="Remove" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button fx:id="updateWineButton" layoutX="225.0"
+									layoutY="286.0" mnemonicParsing="false"
+									onAction="#handleUpdateWineButton" prefHeight="28.0"
+									prefWidth="99.0" style="-fx-background-color: #2777f7;"
+									text="Update" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<TextField fx:id="newWineName" layoutX="544.0"
+									layoutY="8.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Name" />
+								<TextField fx:id="newWineProducer" layoutX="544.0"
+									layoutY="39.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Producer" />
+								<TextField fx:id="newWineYear" layoutX="544.0"
+									layoutY="69.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Year" />
+								<TextArea fx:id="newWineTN" layoutX="544.0"
+									layoutY="102.0" prefHeight="83.0" prefWidth="138.0"
+									promptText="Technical Notes" />
+								<TextField fx:id="newWineVines" layoutX="544.0"
+									layoutY="191.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Vines" />
+								<TextField fx:id="newWineNB" layoutX="544.0"
+									layoutY="221.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Number of bottles" />
+								<TextField fx:id="newWinePrice" layoutX="544.0"
+									layoutY="252.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Price" />
+
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+
+		<Hyperlink layoutX="619.0" layoutY="14.0"
+			onAction="#handleHomeButton" text="Logout" textFill="#2777f7">
+			<font>
+				<Font name="System Bold" size="15.0" />
+			</font>
+		</Hyperlink>
+
+	</children>
+</AnchorPane>

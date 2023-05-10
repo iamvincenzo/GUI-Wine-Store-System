@@ -1,0 +1,18 @@
+root_register { 
+    display: block;
+}
+
+.root_register{
+     -fx-background-image: url("../pics/background-register.jpg");
+}
+
+root_role { 
+    display: block;
+}
+
+.root_role {
+     -fx-background-image: url("../pics/background-role.jpg");
+     -fx-background-position: center; 
+     -fx-background-repeat: no-repeat; 
+     -fx-background-size: 390;
+}

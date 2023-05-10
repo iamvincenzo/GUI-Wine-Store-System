@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="393.0" prefWidth="694.0"
+	style="-fx-background-color: #082656;"
+	xmlns="http://javafx.com/javafx/11.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="assignement3.controller.CustomerDashboardController">
+
+	<children>
+
+		<Label layoutX="14.0" layoutY="9.0" prefHeight="62.0"
+			prefWidth="138.0" text="Welcome" textFill="WHITE">
+			<font>
+				<Font name="Couture-Bold" size="32.0" />
+			</font>
+		</Label>
+
+		<Label fx:id="usernameLabel" layoutX="152.0" layoutY="16.0"
+			prefHeight="47.0" prefWidth="435.0" text="Customer"
+			textFill="#4c6fa2">
+			<font>
+				<Font size="32.0" />
+			</font>
+		</Label>
+
+		<TabPane fx:id="customerTabPane" layoutY="81.0"
+			prefHeight="350.0" prefWidth="693.0"
+			style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+
+			<tabs>
+
+				<Tab fx:id="shopTab" closable="false" text="Shop">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="320.0" prefWidth="680.0">
+							<children>
+
+								<TableView fx:id="shopTableView" layoutX="14.0"
+									layoutY="10.0" prefHeight="202.0" prefWidth="672.0">
+									<placeholder>
+										<Label text="Insert data to search" />
+									</placeholder>
+
+									<columns>
+										<TableColumn fx:id="wineName" prefWidth="100.0"
+											text="Name" />
+										<TableColumn fx:id="wineProducer"
+											prefWidth="100.0" text="Producer" />
+										<TableColumn fx:id="wineYear" prefWidth="100.0"
+											text="Year" />
+										<TableColumn fx:id="wineTn" prefWidth="100.0"
+											text="Technical Notes" />
+										<TableColumn fx:id="wineVines" prefWidth="100.0"
+											text="Vines" />
+										<TableColumn fx:id="wineBottle" text="Bottles" />
+										<TableColumn fx:id="winePrice" prefWidth="100.0"
+											text="Price" />
+									</columns>
+
+								</TableView>
+
+								<Button fx:id="buyButton" disable="true" layoutX="579.0"
+									layoutY="271.0" mnemonicParsing="false"
+									onAction="#handleBuyProductButton" prefHeight="28.0"
+									prefWidth="99.0" style="-fx-background-color: #2777f7;"
+									text="Buy" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button layoutX="14.0" layoutY="271.0"
+									mnemonicParsing="false" onAction="#handleSearchProductButton"
+									prefHeight="28.0" prefWidth="99.0"
+									style="-fx-background-color: #2777f7;" text="Search"
+									textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button layoutX="127.0" layoutY="271.0"
+									mnemonicParsing="false" onAction="#handleSearchViewAllButton"
+									prefHeight="28.0" prefWidth="99.0"
+									style="-fx-background-color: #2777f7;" text="View all"
+									textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<TextField fx:id="productName" layoutX="14.0"
+									layoutY="233.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Name" />
+								<TextField fx:id="productProducer" layoutX="159.0"
+									layoutY="233.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Producer" />
+								<TextField fx:id="productYear" layoutX="307.0"
+									layoutY="233.0" prefHeight="26.0" prefWidth="138.0"
+									promptText="Year" />
+								<TextField fx:id="productNBottles" disable="true"
+									layoutX="452.0" layoutY="233.0" prefHeight="26.0"
+									prefWidth="138.0" promptText="Number of bottles" />
+								<Label fx:id="invalidNBottles" layoutX="453.0"
+									layoutY="215.0" text="This field is required*"
+									textFill="#ee0000" visible="false" />
+								<Label fx:id="invalidName" layoutX="15.0" layoutY="215.0"
+									text="This field is required*" textFill="#ee0000"
+									visible="false" />
+								<Label fx:id="invalidYear" layoutX="308.0" layoutY="215.0"
+									text="This field is required*" textFill="#ee0000"
+									visible="false" />
+								<Label fx:id="invalidProducer" layoutX="160.0"
+									layoutY="215.0" text="This field is required*"
+									textFill="#ee0000" visible="false" />
+
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+
+				<Tab fx:id="historyTab" text="History">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="180.0" prefWidth="200.0">
+
+							<children>
+
+								<TableView fx:id="historyTableView" layoutX="14.0"
+									layoutY="10.0" prefHeight="258.0" prefWidth="671.0">
+									<placeholder>
+										<Label text="View your orders" />
+									</placeholder>
+
+									<columns>
+										<TableColumn fx:id="ordID" prefWidth="30.0"
+											text="ID" />
+										<TableColumn fx:id="ordWine" prefWidth="100.0"
+											text="Wine" />
+										<TableColumn fx:id="ordWProducer"
+											prefWidth="100.0" text="Producer" />
+										<TableColumn fx:id="ordWYear" prefWidth="90.0"
+											text="Year" />
+										<TableColumn fx:id="ordBottles" prefWidth="90.0"
+											text="Bottles" />
+										<TableColumn fx:id="ordCompleted" prefWidth="70.0"
+											text="Completed" />
+										<TableColumn fx:id="ordDate" prefWidth="100.0"
+											text="Date" />
+										<TableColumn fx:id="ordTot" prefWidth="90.0"
+											text="Price" />
+									</columns>
+
+								</TableView>
+
+								<TextField fx:id="wineNameHistoryField"
+									alignment="TOP_CENTER" layoutX="274.0" layoutY="275.0"
+									prefHeight="25.0" prefWidth="150.0" promptText="Wine" />
+
+								<DatePicker fx:id="dateOrder" editable="false"
+									layoutX="94.0" layoutY="275.0" onAction="#handleDatePicker"
+									prefHeight="26.0" prefWidth="155.0" promptText="dd/mm/yyyy" />
+
+								<Button fx:id="hisotryViewBySearch" layoutX="447.0"
+									layoutY="275.0" mnemonicParsing="false"
+									onAction="#handleHistoryViewBySearchButton" prefHeight="26.0"
+									prefWidth="150.0" style="-fx-background-color: #2777f7;"
+									text="View" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+							</children>
+						</AnchorPane>
+					</content>
+				</Tab>
+
+				<Tab fx:id="notifyTab" text="Notification">
+
+					<content>
+
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="180.0" prefWidth="200.0">
+
+							<children>
+
+								<TableView fx:id="notifyTableView" layoutX="14.0"
+									layoutY="10.0" prefHeight="258.0" prefWidth="671.0">
+									<placeholder>
+										<Label text="View your notifications" />
+									</placeholder>
+									<columns>
+										<TableColumn fx:id="notifyID" prefWidth="70.0"
+											text="ID" />
+										<TableColumn fx:id="notifyWine" prefWidth="150.0"
+											text="Wine" />
+										<TableColumn fx:id="notifyWProducer"
+											prefWidth="100.0" text="Producer" />
+										<TableColumn fx:id="notifyWYear" prefWidth="100.0"
+											text="Year" />
+										<TableColumn fx:id="notifyBottles"
+											prefWidth="100.0" text="Bottles" />
+										<TableColumn fx:id="notifyDate" prefWidth="150.0"
+											text="Date" />
+									</columns>
+								</TableView>
+
+								<TextField fx:id="wineNameNotifyField"
+									alignment="TOP_CENTER" layoutX="220.0" layoutY="275.0"
+									prefHeight="26.0" prefWidth="120.0" promptText="Wine" />
+
+								<DatePicker fx:id="dateNotify" editable="false"
+									layoutX="80.0" layoutY="275.0" onAction="#handleDatePicker"
+									prefHeight="26.0" prefWidth="120.0" promptText="dd/mm/yyyy" />
+
+								<Button fx:id="notifyViewBySearch" layoutX="353.0"
+									layoutY="274.0" mnemonicParsing="false"
+									onAction="#handleNotifyViewBySearchButton" prefHeight="26.0"
+									prefWidth="120.0" style="-fx-background-color: #2777f7;"
+									text="View" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Button fx:id="deleteNotification" layoutX="485.0"
+									layoutY="274.0" mnemonicParsing="false"
+									onAction="#handleDeleteNotifyButton" prefHeight="26.0"
+									prefWidth="130.0" style="-fx-background-color: #2777f7;"
+									text="Delete notification" textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+							</children>
+
+						</AnchorPane>
+					</content>
+
+				</Tab>
+
+				<Tab fx:id="accountTab" closable="false"
+					onSelectionChanged="#handleAccountTab" text="Account">
+
+					<content>
+
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="270.0" prefWidth="438.0"
+							style="-fx-background-color: white;">
+
+							<children>
+
+								<Button layoutX="329.0" layoutY="285.0"
+									mnemonicParsing="false" onAction="#handleCustomerUpdateButton"
+									prefHeight="25.0" prefWidth="99.0"
+									style="-fx-background-color: #2777f7;" text="Update"
+									textFill="WHITE">
+									<font>
+										<Font name="System Bold" size="12.0" />
+									</font>
+								</Button>
+
+								<Label layoutX="50.0" layoutY="95.0" text="Name:" />
+
+								<TextField fx:id="newName" layoutX="100.0"
+									layoutY="91.0" prefHeight="25.0" prefWidth="220.0"
+									promptText="Insert your new name here" />
+
+								<Label layoutX="33.0" layoutY="126.0" text="Surname:" />
+
+								<TextField fx:id="newSurname" layoutX="100.0"
+									layoutY="121.0" prefHeight="25.0" prefWidth="220.0"
+									promptText="Insert your new surname here" />
+
+								<Label layoutX="52.0" layoutY="156.0" text="Email:" />
+
+								<TextField fx:id="newEmail" layoutX="100.0"
+									layoutY="151.0" prefHeight="25.0" prefWidth="220.0"
+									promptText="Insert your new email here" />
+
+								<Label layoutX="35.0" layoutY="186.0" text="Address:" />
+
+								<TextField fx:id="newAddress" layoutX="100.0"
+									layoutY="182.0" prefHeight="25.0" prefWidth="220.0"
+									promptText="Insert your new address here" />
+
+								<Label layoutX="31.0" layoutY="218.0" text="Password:" />
+
+								<PasswordField fx:id="newPass" layoutX="101.0"
+									layoutY="213.0" prefHeight="25.0" prefWidth="220.0"
+									promptText="Insert your new password here" />
+
+								<PasswordField fx:id="oldPass" layoutX="101.0"
+									layoutY="285.0" prefHeight="25.0" prefWidth="219.0"
+									promptText="Insert your actual password to confirm" />
+
+
+								<TableView fx:id="accountTableView" layoutX="6.0"
+									layoutY="14.0" prefHeight="68.0" prefWidth="684.0">
+									<columns>
+										<TableColumn fx:id="custName"
+											maxWidth="169.33334875106812" prefWidth="169.33334875106812"
+											text="Name" />
+										<TableColumn fx:id="custSurname"
+											maxWidth="187.3333282470703" prefWidth="167.99998474121094"
+											resizable="false" text="Surname" />
+										<TableColumn fx:id="custEmail"
+											maxWidth="207.33334350585938" minWidth="0.0"
+											prefWidth="161.33331298828125" text="Email" />
+										<TableColumn fx:id="custAddress"
+											maxWidth="202.66665649414062" prefWidth="184.66665649414062"
+											text="Address" />
+									</columns>
+								</TableView>
+
+							</children>
+
+						</AnchorPane>
+
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+
+		<Hyperlink layoutX="619.0" layoutY="14.0"
+			onAction="#handleHomeButton" text="Logout" textFill="#2777f7">
+			<font>
+				<Font name="System Bold" size="15.0" />
+			</font>
+		</Hyperlink>
+
+	</children>
+</AnchorPane>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="393.0" prefWidth="694.0"
+	style="-fx-background-color: #082656;"
+	xmlns="http://javafx.com/javafx/11.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="assignement3.controller.SearchController">
+	<children>
+
+		<Label layoutX="14.0" layoutY="9.0" prefHeight="62.0"
+			prefWidth="190.0" text="Search Wine" textFill="WHITE">
+			<font>
+				<Font name="Couture-Bold" size="32.0" />
+			</font>
+		</Label>
+
+		<AnchorPane layoutY="72.0" minHeight="0.0" minWidth="0.0"
+			prefHeight="322.0" prefWidth="694.0"
+			style="-fx-background-color: white;">
+			<children>
+
+				<TableView fx:id="searchTableView" layoutX="14.0"
+					layoutY="10.0" prefHeight="202.0" prefWidth="672.0">
+
+					<placeholder>
+						<Label text="Insert data to search" />
+					</placeholder>
+
+					<columns>
+						<TableColumn fx:id="wineName" prefWidth="100.0"
+							text="Name" />
+						<TableColumn fx:id="wineProducer" prefWidth="100.0"
+							text="Producer" />
+						<TableColumn fx:id="wineYear" prefWidth="100.0"
+							text="Year" />
+						<TableColumn fx:id="wineTn" prefWidth="100.0"
+							text="Technical Notes" />
+						<TableColumn fx:id="wineVines" prefWidth="100.0"
+							text="Vines" />
+						<TableColumn fx:id="wineBottle" text="Bottles" />
+						<TableColumn fx:id="winePrice" prefWidth="100.0"
+							text="Price" />
+					</columns>
+				</TableView>
+
+				<Button layoutX="14.0" layoutY="271.0"
+					mnemonicParsing="false" onAction="#handleSearchProductButton"
+					prefHeight="28.0" prefWidth="99.0"
+					style="-fx-background-color: #2777f7;" text="Search"
+					textFill="WHITE">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Button>
+
+				<Button layoutX="580.0" layoutY="272.0"
+					mnemonicParsing="false" onAction="#handleSearchViewAllButton"
+					text="View all" prefHeight="28.0" prefWidth="99.0"
+					style="-fx-background-color: #2777f7;" textFill="WHITE">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Button>
+
+				<TextField fx:id="productName" layoutX="14.0"
+					layoutY="233.0" prefHeight="26.0" prefWidth="138.0"
+					promptText="Name" />
+				<TextField fx:id="productProducer" layoutX="159.0"
+					layoutY="233.0" prefHeight="26.0" prefWidth="138.0"
+					promptText="Producer" />
+				<TextField fx:id="productYear" layoutX="307.0"
+					layoutY="233.0" prefHeight="26.0" prefWidth="138.0"
+					promptText="Year" />
+
+				<Label fx:id="invalidName" layoutX="15.0" layoutY="215.0"
+					text="This field is required*" textFill="#ee0000" visible="false" />
+				<Label fx:id="invalidYear" layoutX="308.0" layoutY="215.0"
+					text="This field is required*" textFill="#ee0000" visible="false" />
+				<Label fx:id="invalidProducer" layoutX="160.0" layoutY="215.0"
+					text="This field is required*" textFill="#ee0000" visible="false" />
+			</children>
+		</AnchorPane>
+
+		<Hyperlink layoutX="619.0" layoutY="14.0"
+			onAction="#handleHomeButton" text="Exit" textFill="#2777f7">
+			<font>
+				<Font name="System Bold" size="15.0" />
+			</font>
+		</Hyperlink>
+
+	</children>
+</AnchorPane>
